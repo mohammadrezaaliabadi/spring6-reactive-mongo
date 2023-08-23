@@ -10,7 +10,9 @@ version = '0.0.1-SNAPSHOT'
 java {
     sourceCompatibility = '20'
 }
-
+ext{
+    mapstructSpringExtensionsVersion = "1.5.5.Final"
+}
 configurations {
     compileOnly {
         extendsFrom annotationProcessor
@@ -28,6 +30,8 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-webflux'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
+    implementation"org.mapstruct:mapstruct:${mapstructSpringExtensionsVersion}"
+    annotationProcessor "org.mapstruct:mapstruct-processor:${mapstructSpringExtensionsVersion}"
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'io.projectreactor:reactor-test'
 }
