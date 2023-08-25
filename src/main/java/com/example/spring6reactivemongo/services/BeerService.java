@@ -1,10 +1,12 @@
 package com.example.spring6reactivemongo.services;
 
+import com.example.spring6reactivemongo.domain.Beer;
 import com.example.spring6reactivemongo.model.BeerDTO;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 public interface BeerService {
+    Mono<BeerDTO> findFirstByBeerName(String beerName);
     Flux<BeerDTO> listBeers();
     Mono<BeerDTO> saveBeer(Mono<BeerDTO> beerDTO);
     Mono<BeerDTO> saveBeer(BeerDTO beerDTO);
